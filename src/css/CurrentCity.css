@@ -1,0 +1,106 @@
+.CurrentCity .city-name {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.CurrentCity {
+  padding-left: 30px;
+}
+
+.CurrentCity .current-location {
+  padding: 15px 0;
+}
+
+.CurrentCity .current-location .date-info {
+  color: var(--secondary-color);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.CurrentCity .current-weather-row {
+  padding: 15px 0;
+}
+
+.CurrentCity .col-current-weather-info {
+  margin: auto 0;
+}
+
+.CurrentCity .col-current-weather-info .temperature-info {
+  line-height: 1;
+}
+
+.CurrentCity .col-current-weather-info #current-weather-icon {
+  max-width: 50px;
+  vertical-align: middle;
+}
+
+.CurrentCity .col-current-weather-info .temperature {
+  color: var(--primary-color);
+  display: inline;
+  font-size: 38px;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+.CurrentCity .col-current-weather-info .temperature-unit {
+  color: var(--secondary-color);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 38px;
+  vertical-align: top;
+}
+
+.CurrentCity .unit-default {
+  font-weight: 300;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.CurrentCity .unit-selected {
+  font-weight: 700;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+
+.CurrentCity .col-current-weather-info .weather {
+  color: var(--secondary-color);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.CurrentCity .col-current-weather-more-info {
+  font-size: 11px;
+}
+
+.CurrentCity .value {
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.CurrentCity .label {
+  color: var(--fixed-elements-color);
+  font-weight: 500;
+}
+
+.col-save-city {
+  text-align: right;
+}
+
+.save-city {
+  background: none;
+  border: 1px solid var(--fixed-elements-color);
+  color: var(--fixed-elements-color);
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.more-details {
+  color: var(--fixed-elements-color);
+  font-size: 12px;
+  padding: 0;
+}

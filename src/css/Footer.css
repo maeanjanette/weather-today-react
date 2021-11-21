@@ -1,0 +1,9 @@
+.Footer {
+  font-size: 10px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.Footer .bolt-icon {
+  padding: 5px;
+}

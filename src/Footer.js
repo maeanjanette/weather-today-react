@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="Footer">
       <span className="created-by">
         <a
-          href="https://github.com/maeanjanette/weather-today"
+          href="https://github.com/maeanjanette/weather-today-react"
           title="GitHub"
           target="_blank"
           rel="noreferrer"
@@ -15,26 +15,6 @@ export default function Footer() {
         by Anj Docena
       </span>
       <i className="fas fa-bolt bolt-icon"></i>
-      <span className="icons-attribute">
-        Icons made by{" "}
-        <a
-          href="https://www.freepik.com"
-          title="Freepik"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Freepik{" "}
-        </a>
-        from{" "}
-        <a
-          href="https://www.flaticon.com/"
-          title="Flaticon"
-          target="_blank"
-          rel="noreferrer"
-        >
-          www.flaticon.com
-        </a>
-      </span>
     </div>
   );
 }

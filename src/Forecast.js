@@ -13,7 +13,7 @@ export default function Forecast(props) {
               icon={props.weather}
               color="#a31c88"
               size={40}
-              animate={false}
+              animate={true}
             />
           </span>
           <div className="forecast-hi">

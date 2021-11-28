@@ -1,0 +1,37 @@
+.Weather .city-name {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.Weather .row-forecast {
+  padding: 15px 0;
+  background: rgba(var(--background-color), 0.1);
+  border: none;
+  border-radius: 5px;
+  margin: 10px 5px;
+}
+
+.Weather .col-save-city {
+  text-align: right;
+}
+
+.Weather .save-city {
+  background: none;
+  border: 1px solid var(--fixed-elements-color);
+  color: var(--fixed-elements-color);
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.Weather .more-details {
+  color: var(--fixed-elements-color);
+  font-size: 12px;
+  padding: 0;
+}
+
+.Weather .loader {
+  text-align: center;
+}

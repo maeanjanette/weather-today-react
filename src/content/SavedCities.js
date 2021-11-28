@@ -1,4 +1,4 @@
-import "./css/SavedCities.css";
+import "./SavedCities.css";
 
 export default function SavedCities() {
   return (

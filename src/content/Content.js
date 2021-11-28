@@ -1,6 +1,8 @@
 import SavedCities from "./SavedCities";
 import CurrentCity from "./CurrentCity";
 
+import "./Content.css";
+
 export default function Content() {
   return (
     <div className="Content">

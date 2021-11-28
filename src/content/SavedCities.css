@@ -1,7 +1,3 @@
-.SavedCities {
-  border-right: 2px solid var(--line-color);
-}
-
 .SavedCities .label {
   color: var(--fixed-elements-color);
   font-weight: 500;

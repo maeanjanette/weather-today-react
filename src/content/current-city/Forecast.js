@@ -1,10 +1,10 @@
 import ReactAnimatedWeather from "react-animated-weather";
 
-import "./css/Forecast.css";
+import "./Forecast.css";
 
 export default function Forecast(props) {
   return (
-    <div className="col-md col-forecast">
+    <div className="Forecast col-md col-forecast">
       <div className="card card-forecast">
         <div className="card-body">
           <div className="date-info">{props.dayInfo}</div>

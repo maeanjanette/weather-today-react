@@ -1,0 +1,7 @@
+.SavedCities {
+  border-right: 2px solid var(--line-color);
+}
+
+.row .CurrentCity {
+  padding-left: 30px;
+}

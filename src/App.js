@@ -1,8 +1,8 @@
-import Header from "./Header";
-import Content from "./Content";
-import Footer from "./Footer";
+import Header from "./header/Header";
+import Content from "./content/Content";
+import Footer from "./footer/Footer";
 
-import "./css/App.css";
+import "./App.css";
 
 export default function App() {
   return (

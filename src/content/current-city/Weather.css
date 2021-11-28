@@ -13,25 +13,16 @@
   margin: 10px 5px;
 }
 
-.Weather .col-save-city {
-  text-align: right;
-}
-
-.Weather .save-city {
-  background: none;
-  border: 1px solid var(--fixed-elements-color);
-  color: var(--fixed-elements-color);
-  font-size: 12px;
-  border-radius: 5px;
-  padding: 5px 20px;
-}
-
 .Weather .more-details {
   color: var(--fixed-elements-color);
   font-size: 12px;
   padding: 0;
+  display: block;
+  text-align: right;
 }
 
 .Weather .loader {
   text-align: center;
+  vertical-align: middle;
+  line-height: 382px;
 }

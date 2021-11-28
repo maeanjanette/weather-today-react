@@ -26,34 +26,24 @@ export default function Weather(props) {
             );
           })}
         </div>
-        <div className="row row-current-location-footer">
-          <div className="col-6 col-more-details">
-            <a
-              href={`https://www.google.com/search?q=${weather.current.city}+weather+now`}
-              className="btn btn-link more-details"
-              target="_blank"
-              rel="noreferrer"
-            >
-              More details
-            </a>
-          </div>
-          <div className="col-6 col-save-city">
-            <button type="button" className="save-city shadow-sm">
-              Save City
-            </button>
-          </div>
-        </div>
+        <a
+          href={`https://www.google.com/search?q=${weather.current.city}+weather+now`}
+          className="more-details"
+          target="_blank"
+          rel="noreferrer"
+        >
+          More details
+        </a>
       </div>
     );
   } else {
     return (
-      <div className="Weather">
+      <div className="Weather weather-loader">
         <Loader
           className="loader"
-          type="Grid"
-          color="#ff5151"
-          height={50}
-          width={50}
+          type="Plane"
+          color="#a31c88"
+          secondaryColor="#ff5151"
         />
       </div>
     );

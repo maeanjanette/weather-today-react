@@ -1,7 +1,51 @@
-.SavedCities {
-  border-right: 2px solid var(--line-color);
+.Content .search {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.row .CurrentCity {
-  padding-left: 30px;
+input[type="submit"] {
+  font-family: FontAwesome;
+}
+
+.Content #search-city-form {
+  display: inline;
+}
+
+.Content .search-input {
+  width: 60%;
+  padding: 5px;
+  font-size: 11px;
+  line-height: 12px;
+  background: none;
+  border: 1px solid var(--line-color);
+  border-radius: 4px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+  left: -4px;
+}
+
+.Content .search-input:focus {
+  border-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  outline: none;
+}
+
+.Content #search-icon {
+  color: var(--secondary-color);
+  left: -27px;
+  padding: 0;
+  position: relative;
+  vertical-align: middle;
+}
+
+.Content #search-icon:hover {
+  color: var(--secondary-color);
+}
+
+.Content #pin-location-icon {
+  color: var(--secondary-color);
+  left: -14px;
+  padding: 0;
+  position: relative;
+  vertical-align: middle;
 }

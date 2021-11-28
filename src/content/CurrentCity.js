@@ -10,6 +10,8 @@ export default function CurrentCity() {
   const apiKey = "2a6c08410f44ce2149f03a0511abc953";
 
   let currentWeather = new Map();
+  let forecastWeather = [];
+
   currentWeather.isLoaded = false;
 
   const [city, setCity] = useState("");
@@ -58,6 +60,56 @@ export default function CurrentCity() {
     },
   ];
 
+  function updateForecastInfo(response) {
+    let forecastList = response.data.list;
+    for (const i in forecastWeather) {
+      let forecast = forecastWeather[i];
+      let imageCode = getImageCode(forecastList[i * 8].weather[0].main);
+
+      forecastWeather[i] = {
+        ...forecast,
+        forecastHi: Math.round(forecastList[i * 8].main.temp_max),
+        forecastLo: Math.round(forecastList[i * 8].main.temp_min),
+        forecastImage: imageCode,
+      };
+    }
+
+    setWeatherInfo({
+      isLoaded: true,
+      current: currentWeather,
+      forecast: forecastWeather,
+    });
+  }
+
+  function updateForecastDate(now) {
+    let forecast = new Map();
+
+    for (let i = 0; i < 5; i++) {
+      let dayNum = (now.getDay() + (i + 1)) % 7;
+      let day = days[dayNum];
+      let date = `${now.getMonth() + 1}/${now.getDate() + (i + 1)}`;
+
+      forecast = {
+        forecastDate: `${day} ${date}`,
+      };
+
+      forecastWeather.push(forecast);
+    }
+  }
+
+  function getForecast(now, cityName) {
+    updateForecastDate(now);
+
+    const unit = localStorage.getItem("unit")
+      ? localStorage.getItem("unit")
+      : "metric";
+
+    cityName = cityName.toLowerCase();
+    let forecastApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=${unit}&appid=${apiKey}`;
+
+    axios.get(forecastApi).then(updateForecastInfo);
+  }
+
   function getImageCode(weatherCategory) {
     let imageCode;
 
@@ -98,11 +150,12 @@ export default function CurrentCity() {
     let utcMillis = Date.now();
     let timezoneNow = utcMillis + nowTimezoneOffset + timezone * 1000;
 
-    return formatDateTime(new Date(timezoneNow));
+    return new Date(timezoneNow);
   }
 
-  function handleResponse(response) {
-    let dateInfo = computeDateTime(response.data.timezone);
+  function handleCurrentWeather(response) {
+    let now = computeDateTime(response.data.timezone);
+    let dateInfo = formatDateTime(now);
     let imageCode = getImageCode(response.data.weather[0].main);
     let convertedWind = response.data.wind.speed * 3.6;
     currentWeather = {
@@ -118,10 +171,7 @@ export default function CurrentCity() {
       image: imageCode,
     };
 
-    setWeatherInfo({
-      isLoaded: true,
-      current: currentWeather,
-    });
+    getForecast(now, currentWeather.city);
   }
 
   function showCurrentWeather(position) {
@@ -134,7 +184,7 @@ export default function CurrentCity() {
 
     let geoWeatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${unit}&appid=${apiKey}`;
 
-    axios.get(geoWeatherApi).then(handleResponse);
+    axios.get(geoWeatherApi).then(handleCurrentWeather);
   }
 
   function handleSubmit(event) {
@@ -148,7 +198,7 @@ export default function CurrentCity() {
       let formattedCity = city.trim();
 
       let weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${formattedCity}&appid=${apiKey}&units=${unit}`;
-      axios.get(weatherApi).then(handleResponse);
+      axios.get(weatherApi).then(handleCurrentWeather);
     } else {
       alert("Please enter a city");
     }

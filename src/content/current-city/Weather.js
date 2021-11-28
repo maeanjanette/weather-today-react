@@ -7,42 +7,24 @@ import "./Weather.css";
 
 export default function Weather(props) {
   const weather = props.weatherInfo;
+  const forecast = weather.forecast;
 
   if (weather.isLoaded) {
     return (
       <div className="Weather">
         <Current current={weather.current} />
         <div className="row shadow-sm row-forecast">
-          <Forecast
-            dayInfo="Mon 11/21"
-            tempHi="29"
-            tempLo="26"
-            weather="SLEET"
-          />
-          <Forecast
-            dayInfo="Tue 11/22"
-            tempHi="30"
-            tempLo="27"
-            weather="PARTLY_CLOUDY_DAY"
-          />
-          <Forecast
-            dayInfo="Wed 11/23"
-            tempHi="28"
-            tempLo="27"
-            weather="CLOUDY"
-          />
-          <Forecast
-            dayInfo="Thu 11/24"
-            tempHi="28"
-            tempLo="26"
-            weather="WIND"
-          />
-          <Forecast
-            dayInfo="Fri 11/25"
-            tempHi="29"
-            tempLo="25"
-            weather="RAIN"
-          />
+          {forecast.map(function (value, index) {
+            return (
+              <Forecast
+                key={index}
+                dayInfo={value.forecastDate}
+                tempHi={value.forecastHi}
+                tempLo={value.forecastLo}
+                weather={value.forecastImage}
+              />
+            );
+          })}
         </div>
         <div className="row row-current-location-footer">
           <div className="col-6 col-more-details">
